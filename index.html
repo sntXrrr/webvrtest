@@ -5,6 +5,7 @@
     <title>test</title>
     <meta name="description" content="test">
     <script src="assets/js/aframe.min.js"></script>
+    <script src="assets/js/aframe-auto-detect-controllers-component.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -13,10 +14,10 @@
       </a-assets>
 
       <!-- Primitives. -->
-      <a-box position="-1 0.6 -3" rotation="0 45 0" color="lightblue"></a-box>
-      <a-sphere position="0 1.35 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.85 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-box position="-.5 1 -2.25" width=".5" height=".25" depth=".5" rotation="0 45 0" color="lightblue"></a-box>
+      <a-sphere position="0 1 -1.75" radius=".125" material="color:#EF2D5E;metalness: 0.7"></a-sphere>
+      <a-cylinder position=".5 1 -1.75" radius="0.25" height=".5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 .75 -2.25" rotation="-90 0 0" width="2" height="2" color="#7BC8A4"></a-plane>
 
       <!-- Background sky. -->
       <a-sky height="2048" radius="30" src="#skyTexture" theta-length="180" width="2048"></a-sky>
