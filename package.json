@@ -4,11 +4,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "live-server --browser=\"C:\\Program Files\\Firefox Nightly\\firefox.exe\" --port=7000",
-    "deploy": "ghpages"
+    "start": "live-server --browser=\"C:\\Program Files\\Firefox Nightly\\firefox.exe\" --port=7000"
   },
   "devDependencies": {
-    "ghpages": "0.0.3",
     "live-server": "^1.2.0"
   },
   "keywords": [
