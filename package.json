@@ -1,19 +1,22 @@
 {
-  "author": "Paul",
-  "version": "0.3.0",
-  "name": "testing",
-  "description": "browsersync + gulp to watch and compile/prefix/minify scss and js",
+  "name": "test",
+  "description": "test.",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
-		"start": "concurrently \"browser-sync start --server --files \"css/*.css\"\" \"gulp watch\" "
+    "start": "live-server --browser=\"C:\\Program Files\\Firefox Nightly\\firefox.exe\" --port=7000",
+    "deploy": "ghpages"
   },
   "devDependencies": {
-		"concurrently": "^3.3.0",
-		"gulp": "^3.9.1",
-		"gulp-concat": "^2.6.1",
-		"gulp-minify": "0.0.15",
-		"gulp-sass": "^3.1.0",
-		"gulp-autoprefixer": "^3.1.1",
-		"gulp-cssnano": "^2.1.2",
-		"browser-sync": "^2.18.8"
-  }
+    "ghpages": "0.0.3",
+    "live-server": "^1.2.0"
+  },
+  "keywords": [
+    "aframe",
+    "aframe-example",
+    "aframe-boilerplate",
+    "aframe-scene",
+    "webvr",
+    "vr"
+  ]
 }

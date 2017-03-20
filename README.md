@@ -1,2 +1,12 @@
-# webvrtest
-aframe-test
+# test
+
+test.
+
+Built with [A-Frame](https://aframe.io).
+
+## Setup
+
+```sh
+npm install
+npm run start
+```
