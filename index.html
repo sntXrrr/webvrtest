@@ -14,12 +14,17 @@
         <img id="skyTexture1-thumb" src="assets/img/ED-interior-thumb.jpg">
         <img id="skyTexture2" src="assets/img/ED-interior2.jpg">
         <img id="skyTexture2-thumb" src="assets/img/ED-interior2-thumb.jpg">
+        <audio id="click" src="assets/snd/step.mp3"></audio>
       </a-assets>
 
       <!-- Primitives. -->
-      
       <a-box position="-.5 .88 -1.82" width=".5" height=".25" depth=".5" rotation="0 45 0" color="lightblue"></a-box>
-      <a-sphere position="-.45 1.15 -1.80" radius=".125" material="color:#EF2D5E;metalness: 0.7"></a-sphere>
+      <a-sphere 
+        position="-.45 1.15 -1.80" 
+        radius=".125" 
+        material="color:#EF2D5E;metalness: 0.7"
+        sound="on: click; src: #click">
+      </a-sphere>
       <a-cylinder position=".5 1 -2.41" radius="0.25" height=".5" color="#FFC65D"></a-cylinder>
       <a-plane position="0 0 -2.25" rotation="-90 0 0" width="2" height="2" color="#7BC8A4"></a-plane>
 
