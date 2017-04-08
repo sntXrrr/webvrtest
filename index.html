@@ -5,7 +5,23 @@
     <title>test</title>
     <meta name="description" content="test">
     <script src="assets/js/aframe.min.js"></script>
-    <script src="assets/js/aframe-auto-detect-controllers-component.min.js"></script>
+    <script>
+      /*AFRAME.registerComponent('scale-on-mouseenter', {
+        schema: {
+          from: {default: '1 1 1'},
+          to: {default: '2.5 2.5 2.5'}
+        },
+        init: function () {
+          var data = this.data;
+          this.el.addEventListener('mouseenter', function () {
+            this.setAttribute('scale', data.to);
+          });
+          this.el.addEventListener('mouseleave', function () {
+            this.setAttribute('scale', data.from);
+          });
+        }
+      });
+    </script>
   </head>
   <body>
     <a-scene>
@@ -14,32 +30,64 @@
         <img id="skyTexture1-thumb" src="assets/img/ED-interior-thumb.jpg">
         <img id="skyTexture2" src="assets/img/ED-interior2.jpg">
         <img id="skyTexture2-thumb" src="assets/img/ED-interior2-thumb.jpg">
-        <audio id="click" src="assets/snd/step.mp3"></audio>
+        <img id="skyTexture3" src="assets/img/macaw01.jpg">
+        <audio id="click" src="assets/snd/step.mp3" preload></audio>
       </a-assets>
 
       <!-- Primitives. -->
-      <a-box position="-.5 .88 -1.82" width=".5" height=".25" depth=".5" rotation="0 45 0" color="lightblue"></a-box>
-      <a-sphere 
-        position="-.45 1.15 -1.80" 
-        radius=".125" 
-        material="color:#EF2D5E;metalness: 0.7"
-        sound="on: click; src: #click">
-      </a-sphere>
-      <a-cylinder position=".5 1 -2.41" radius="0.25" height=".5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -2.25" rotation="-90 0 0" width="2" height="2" color="#7BC8A4"></a-plane>
-
+      <a-entity position="0 0 0">
+        <a-box position="-.5 .88 -1.82" width=".5" height=".25" depth=".5" rotation="0 45 0" color="lightblue">
+          <a-animation attribute="rotation" to="0 180 180" direction="alternate" dur="2000"
+      repeat="indefinite"></a-animation>
+        </a-box>
+        <a-sphere 
+          position="-.45 1.15 -1.80" 
+          radius=".125" 
+          material="color:#EF2D5E"
+          sound="on: click; src: #click"
+        >
+          <a-animation
+            begin="mouseenter"
+            attribute="scale"
+            easing="ease-in"
+            dur="700"
+            to="2.3 2.3 2.3">
+          </a-animation>
+          <a-animation
+            begin="mouseleave"
+            attribute="scale"
+            easing="ease-in"
+            dur="700"
+            to="1 1 1">
+          </a-animation>
+          <a-animation
+            begin="click"
+            attribute="scale"
+            dur="1200"
+            to=".8 .8 .8">
+          </a-animation>
+        </a-sphere>
+        <a-cylinder 
+          position=".5 1 -2.41" 
+          radius="0.25" 
+          height=".5" 
+          color="#FFC65D">
+        </a-cylinder>
+        <a-plane position="0 0 -2.25" rotation="-90 0 0" width="2" height="2" color="#7BC8A4"></a-plane>
+      </a-entity>
+      
       <!-- Background sky. -->
-      <a-sky height="2048" radius="30" rotation="0 180 0" src="#skyTexture2" width="2048"></a-sky>
+      <a-sky segments-height="128" rotation="0 180 0" src="#skyTexture3"></a-sky>
 
       <!-- Camera + Cursor. -->
-      <a-camera>
-        <a-cursor id="cursor">
-          <a-animation begin="click" easing="ease-in" attribute="scale"
-                      fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
-          <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
-                      from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+      <a-entity camera look-controls>
+        <a-cursor id="cursor" scale-on-mouseenter>
+          <a-animation begin="mouseleave" easing="ease-in-cubic" attribute="scale"
+            to="1 1 1" dur="240"></a-animation>
+          <a-animation begin="mouseenter" easing="ease-in-cubic" attribute="scale"
+            to="0.5 0.5 0.5" dur="240"></a-animation>
         </a-cursor>
-      </a-camera>
+      </a-entity camera>
 
       <!--Tracked controls. -->
       <a-entity hand-controls="hand: left"></a-entity>
