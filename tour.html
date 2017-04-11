@@ -14,18 +14,17 @@
   <body>
     <a-scene>
       <a-assets>
-        <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-        <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-        <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-        <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+        <img id="macaw01" crossorigin="anonymous" src="assets/img/macaw01.jpg">
+        <img id="macaw01-thumb" crossorigin="anonymous" src="assets/img/macaw01-thumb.jpg">
+        <img id="macaw02" crossorigin="anonymous" src="assets/img/macaw02.jpg">
+        <img id="macaw02-thumb" crossorigin="anonymous" src="assets/img/macaw02-thumb.jpg">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
 
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
           <a-entity class="link"
-            geometry="primitive: plane; height: 1; width: 1"
+            geometry="primitive: plane; height: .6; width: .8"
+            rotation="-15 0 0"
             material="shader: flat; src: ${thumb}"
             event-set__1="_event: mousedown; scale: 1 1 1"
             event-set__2="_event: mouseup; scale: 1.2 1.2 1"
@@ -37,13 +36,12 @@
       </a-assets>
 
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="100" src="#city"></a-sky>
+      <a-sky id="image-360" radius="100" rotation="0 180 0" src="#macaw01"></a-sky>
 
       <!-- Image links. -->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="0 .5 -4">
-        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+      <a-entity id="links" layout="type: line; margin: 1.5" position="0 .35 -2">
+        <a-entity template="src: #link" data-src="#macaw01" data-thumb="#macaw01-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#macaw02" data-thumb="#macaw02-thumb"></a-entity>
       </a-entity>
 
       <!-- Camera + cursor. -->
